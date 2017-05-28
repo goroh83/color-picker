@@ -2,6 +2,7 @@
 
 body {
     background-color: #293249;
+    font-family: 'Muli', sans-serif
 }
 
 h1, span {
@@ -19,6 +20,7 @@ h1, span {
 
 .square {
     width: 30%;
+    background: purple;
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
