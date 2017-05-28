@@ -1,43 +1,78 @@
-/* #507274 */
 
 body {
     background-color: #293249;
-    font-family: 'Muli', sans-serif
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     color: #F7FFEF;
+    text-transform: uppercase;
     text-align: center;
+    font-weight: normal;
     padding: 20px 0;
+    margin: 0;
 }
 
 #colorDisplay {
-    text-transform: uppercase;
+    display: block;
+    font-size: 1.6em;
 }
 
 #container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .square {
     width: 30%;
-    background: purple;
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
-    border-radius: 50%;
+    border-radius: 5%;
+    -webkit-transition: background-color 400ms;
+    transition: background-color 400ms;
 }
 
 #stripe {
     background: #f1f1f1;
     height: 30px;
     text-align: center;
-    color: black;
+}
+
+button{
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    font-size: inherit;
+    color: #293249;
+    letter-spacing: 1px;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    outline: none;
+}
+
+button:hover {
+    color: #f1f1f1;
+    background-color: #293249 ;
+}
+
+#message {
+    display: inline-block;
+    width: 20%;
+    text-transform: uppercase;
+    color: #293249;
+    font-size: 1.2em;
+    font-weight: 700;
+
 }
 
 .selected {
-    background-color: blue;
+    background-color: #293249;
+    color: #f1f1f1;
 }
 
 .removeSquare {
