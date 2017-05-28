@@ -1,14 +1,24 @@
 var squaresNum = 6;
-var colors = generateRandomColors(6);
+var colors = [];
+var pickedColor;
 var squares = document.querySelectorAll('.square');
-var pickedColor = pickColor();
 var colorDisplay = document.querySelector('#colorDisplay');
 var messageDisplay = document.querySelector('#message');
 var h1 = document.querySelector('h1');
 var resetButton = document.querySelector('#reset');
 var modeBtns = document.querySelectorAll('.mode');
 
-for (var i = 0; i < modeBtns.length; i++) {
+
+init();
+
+function init() {
+    setModeBtns();
+    setSquares();
+    reset();
+}
+
+function setModeBtns() {
+    for (var i = 0; i < modeBtns.length; i++) {
     modeBtns[i].addEventListener('click', function () {
         modeBtns[0].classList.remove('selected');
         modeBtns[1].classList.remove('selected');
@@ -16,6 +26,25 @@ for (var i = 0; i < modeBtns.length; i++) {
         this.textContent === 'Easy' ? squaresNum = 3 : squaresNum = 6;
         reset();
     });
+}
+}
+
+
+function setSquares() {
+    for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', function () {
+        var clickedColor = this.style.backgroundColor;
+        if (clickedColor === pickedColor) {
+            messageDisplay.textContent = "Correct!";
+            changeColors(clickedColor);
+            resetButton.textContent = "Play again?";
+            h1.style.backgroundColor = clickedColor;
+        }   else {
+            this.style.backgroundColor = "#293249";
+            messageDisplay.textContent = "Try Again!";
+        }
+    });
+}
 }
 
 function reset() {
@@ -28,7 +57,7 @@ function reset() {
         if (colors[i]) {
             squares[i].style.display = "block"
             squares[i].style.background = colors[i];
-        } else {
+        }   else {
             squares[i].style.display = "none";
         }
     }
@@ -38,24 +67,6 @@ function reset() {
 resetButton.addEventListener('click', function () {
     reset();
 })
-
-colorDisplay.textContent = pickedColor;
-
-for (var i = 0; i < squares.length; i++) {
-    squares[i].style.backgroundColor = colors[i];
-    squares[i].addEventListener('click', function () {
-        var clickedColor = this.style.backgroundColor;
-        if (clickedColor === pickedColor) {
-            messageDisplay.textContent = "Correct!";
-            changeColors(clickedColor);
-            resetButton.textContent = "Play again?";
-            h1.style.backgroundColor = clickedColor;
-        } else {
-            this.style.backgroundColor = "#293249";
-            messageDisplay.textContent = "Try Again!";
-        }
-    });
-}
 
 function changeColors(color) {
     for (var i = 0; i < squares.length; i++) {
