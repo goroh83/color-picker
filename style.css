@@ -5,8 +5,10 @@ body {
     font-family: 'Muli', sans-serif
 }
 
-h1, span {
+h1 {
     color: #F7FFEF;
+    text-align: center;
+    padding: 20px 0;
 }
 
 #colorDisplay {
@@ -25,4 +27,19 @@ h1, span {
     float: left;
     margin: 1.66%;
     border-radius: 50%;
+}
+
+#stripe {
+    background: #f1f1f1;
+    height: 30px;
+    text-align: center;
+    color: black;
+}
+
+.selected {
+    background-color: blue;
+}
+
+.removeSquare {
+    display: none;
 }
